@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- Bootstrap CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+        <title>JavaScript</title>
+        </head>
+        <body>
+
+            <div class="bg-dark p-3">
+                <div class="row mx-0 py-3 bg-light">
+                    <div class="col-sm-8">
+                        <p>Order #88 <small class="text-muted">Today, 20 March, 02:34 PM</small></p>
+
+                        <div class="card rounded mb-3">
+                          <div class="card-body">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active rounded-pill" id="food-tab" data-bs-toggle="tab" data-bs-target="#food-tab-pane" type="button" role="tab" aria-controls="food-tab-pane" aria-selected="true">Food</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link rounded-pill" id="drinks-tab" data-bs-toggle="tab" data-bs-target="#drinks-tab-pane" type="button" role="tab" aria-controls="drinks-tab-pane" aria-selected="false">Drinks</button>
+                            </li>
+                            <li class="nav-item d-none" role="presentation">
+                              <button class="nav-link rounded-pill" id="checkout-tab" data-bs-toggle="tab" data-bs-target="#checkout-tab-pane" type="button" role="tab" aria-controls="checkout-tab-pane" aria-selected="false">Checkout</button>
+                            </li>
+                          </ul>
+                        </div>
+                        </div>
+                        <style>
+                        .card-title, .card-text
+                        {
+                          text-align:center;
+                        }
+
+                        .card-img-top
+                        {
+                          height: 90px;
+                          width: 90px;
+                          margin-left:50px;
+                          margin-top:10px;
+                        }
+
+                        </style>
+
+                          <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="food-tab-pane" role="tabpanel" aria-labelledby="food-tab" tabindex="0">
+                                <div class="row row-cols-1 row-cols-md-4 g-4">
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(37, '6 donuts', 3.50, 'donut.jpeg');">
+                                        <img draggable="false" src="donut.jpeg" class="card-img-top" alt="donutpic">
+                                        <div class="card-body">
+                                          <h5 class="card-title">6 DONUTS</h5>
+                                          <p class="card-text fw-bold">£3.50</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(12, '4 donuts', 3.00, 'donut.jpeg');">
+                                        <img draggable="false" src="donut.jpeg" class="card-img-top" alt="donutpic">
+                                        <div class="card-body">
+                                          <h5 class="card-title">4 DONUTS</h5>
+                                          <p class="card-text fw-bold">£3.00</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(13, '2 donuts', 1.50, 'donut.jpeg');">
+                                        <img draggable="false" src="donut.jpeg" class="card-img-top" alt="donutpic">
+                                        <div class="card-body">
+                                          <h5 class="card-title">2 DONUTS</h5>
+                                          <p class="card-text fw-bold">£1.50</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(14, '+ nutella', 1.50, 'nut.jpeg');">
+                                        <img draggable="false" src="nut.jpeg" class="card-img-top" alt="nutella">
+                                        <div class="card-body">
+                                          <h5 class="card-title">+ NUTELLA</h5>
+                                          <p class="card-text fw-bold">£1.50</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(15, 'hotdog', 3.00, 'dog.png');">
+                                        <img draggable="false" src="dog.png" class="card-img-top" alt="hotdog">
+                                        <div class="card-body">
+                                          <h5 class="card-title">HOT DOG</h5>
+                                          <p class="card-text fw-bold">£3.00</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(16, 'burger', 3.50, 'burger.jpeg');">
+                                        <img draggable="false" src="burger.jpeg" class="card-img-top" alt="burger">
+                                        <div class="card-body">
+                                          <h5 class="card-title">BURGER</h5>
+                                          <p class="card-text fw-bold">£3.50</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(17, 'candy floss', 2.50, 'floss.jpeg');">
+                                        <img draggable="false" src="floss.jpeg" class="card-img-top" alt="floss">
+                                        <div class="card-body">
+                                          <h5 class="card-title">FLOSS</h5>
+                                          <p class="card-text fw-bold">£2.50</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(18, 'dummie', 2.50, 'dummie.jpeg');">
+                                        <img draggable="false" src="dummie.jpeg" class="card-img-top" alt="dummie">
+                                        <div class="card-body">
+                                          <h5 class="card-title">DUMMIE</h5>
+                                          <p class="card-text fw-bold">£2.50</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(19, 'egg roll', 2.00, 'egg.png');">
+                                        <img draggable="false" src="egg.png" class="card-img-top" alt="egg">
+                                        <div class="card-body">
+                                          <h5 class="card-title">EGG ROLL</h5>
+                                          <p class="card-text fw-bold">£2.00</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(20, 'bacon roll', 2.30, 'bacon.jpeg');">
+                                        <img draggable="false" src="bacon.jpeg" class="card-img-top" alt="bacon">
+                                        <div class="card-body">
+                                          <h5 class="card-title">BACON ROLL</h5>
+                                          <p class="card-text fw-bold">£2.30</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(21, 'sausage roll', 2.00, 'saus.png');">
+                                        <img draggable="false" src="saus.png" class="card-img-top" alt="sausage">
+                                        <div class="card-body">
+                                          <h5 class="card-title">SAUSAGE ROLL</h5>
+                                          <p class="card-text fw-bold">£2.00</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(22, 'ice cream', 2.00, 'ic.jpeg');">
+                                        <img draggable="false" src="ic.jpeg" class="card-img-top" alt="icecream">
+                                        <div class="card-body">
+                                          <h5 class="card-title">ICE CREAM</h5>
+                                          <p class="card-text fw-bold">£2.00</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(36, 'flake', 0.50, 'flake.png');">
+                                        <img draggable="false" src="flake.png" class="card-img-top" alt="flake">
+                                        <div class="card-body">
+                                          <h5 class="card-title">+ FLAKE</h5>
+                                          <p class="card-text fw-bold">£0.50</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(38, 'soup', 1.50, 'soup.png');">
+                                        <img draggable="false" src="soup.png" class="card-img-top" alt="soup">
+                                        <div class="card-body">
+                                          <h5 class="card-title">SOUP</h5>
+                                          <p class="card-text fw-bold">£1.50</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(23, '1 donut', 1.00, 'donut.jpeg');">
+                                        <img draggable="false" src="donut.jpeg" class="card-img-top" alt="donutpic">
+                                        <div class="card-body">
+                                          <h5 class="card-title">1 DONUT</h5>
+                                          <p class="card-text fw-bold">£1.00</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(24, 'tablet', 1.00, 'tab.png');">
+                                        <img draggable="false" src="tab.png" class="card-img-top" alt="tab">
+                                        <div class="card-body">
+                                          <h5 class="card-title">TABLET</h5>
+                                          <p class="card-text fw-bold">£1.00</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card" onclick="orderbasket(25, 'macaroon', 2.00, 'mac.png');">
+                                        <img draggable="false" src="mac.png" class="card-img-top" alt="mac">
+                                        <div class="card-body">
+                                          <h5 class="card-title">MACAROON</h5>
+                                          <p class="card-text fw-bold">£2.00</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+
+
+                            <div class="tab-pane fade" id="drinks-tab-pane" role="tabpanel" aria-labelledby="drinks-tab" tabindex="0">
+                              <div class="row row-cols-1 row-cols-md-4 g-4">
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(26, 'tea', 2.00, 'tc.png');">
+                                    <img draggable="false" src="tc.png" class="card-img-top" alt="tea">
+                                    <div class="card-body">
+                                      <h5 class="card-title">TEA</h5>
+                                      <p class="card-text fw-bold">£2.00</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(27, 'coffee', 2.00, 'tc.png');">
+                                    <img draggable="false" src="tc.png" class="card-img-top" alt="coffee">
+                                    <div class="card-body">
+                                      <h5 class="card-title">COFFEE</h5>
+                                      <p class="card-text fw-bold">£2.00</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(28, 'cappuchino', 2.50, 'cp.jpeg');">
+                                    <img draggable="false" src="cp.jpeg" class="card-img-top" alt="cappuchino">
+                                    <div class="card-body">
+                                      <h5 class="card-title">CAPPUCHINO</h5>
+                                      <p class="card-text fw-bold">£2.50</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(29, 'latte', 2.50, 'cp.jpeg');">
+                                    <img draggable="false" src="cp.jpeg" class="card-img-top" alt="latte">
+                                    <div class="card-body">
+                                      <h5 class="card-title">LATTE</h5>
+                                      <p class="card-text fw-bold">£2.50</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(30, 'can', 1.50, 'coke.jpeg');">
+                                    <img draggable="false" src="coke.jpeg" class="card-img-top" alt="can">
+                                    <div class="card-body">
+                                      <h5 class="card-title">CAN</h5>
+                                      <p class="card-text fw-bold">£1.50</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(31, 'water', 1.50, 'ivv.jpeg');">
+                                    <img draggable="false" src="ivv.jpeg" class="card-img-top" alt="water">
+                                    <div class="card-body">
+                                      <h5 class="card-title">WATER</h5>
+                                      <p class="card-text fw-bold">£1.50</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(32, 'fruit shoot', 1.00, 'fs.jpeg');">
+                                    <img draggable="false" src="fs.jpeg" class="card-img-top" alt="fruitshoot" style="width:50px;">
+                                    <div class="card-body">
+                                      <h5 class="card-title">FRUIT SHOOT</h5>
+                                      <p class="card-text fw-bold">£1.00</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(33, 'milkshake', 2.00, 'ms.png');">
+                                    <img draggable="false" src="ms.png" class="card-img-top" alt="milkshake">
+                                    <div class="card-body">
+                                      <h5 class="card-title">MILKSHAKE</h5>
+                                      <p class="card-text fw-bold">£2.00</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(34, 'bovril', 2.00, 'bov.jpeg');">
+                                    <img draggable="false" src="bov.jpeg" class="card-img-top" alt="bovril">
+                                    <div class="card-body">
+                                      <h5 class="card-title">BOVRIL</h5>
+                                      <p class="card-text fw-bold">£2.00</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card" onclick="orderbasket(35, 'hot chocolate', 2.00, 'hcc.jpeg');">
+                                    <img draggable="false" src="hcc.jpeg" class="card-img-top" alt="hotchoc">
+                                    <div class="card-body">
+                                      <h5 class="card-title">HOT CHOCOLATE</h5>
+                                      <p class="card-text fw-bold">£2.00</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="checkout-tab-pane" role="tabpanel" aria-labelledby="checkout-tab" tabindex="0"><h3>CHECKOUT</h3>
+                              <div class="row mb-3">
+                                <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Customer Name</label>
+                                <div class="col-sm-8">
+                                  <input type="text" class=" text-center form-control form-control-lg rounded-pill" id="customername" placeholder="ORDER #0000">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Amount</label>
+                                <div class="col-sm-8">
+                                  <input type="number" step="0.01" class=" text-center form-control form-control-lg rounded-pill" id="amount" placeholder="0.00" disabled="">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label class="col-sm-4 col-form-label col-form-label-lg">Customer Paid</label>
+                                <div class="col-sm-8">
+                                  <button onclick="exactAmountCalculator()" id="calculatorModal" class="btn btn-dark btn-lg rounded-pill w-100" data-bs-toggle="modal" data-bs-target="#amountcalculator">Insert Paid Amount</button>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Amount Customer Paid</label>
+                                <div class="col-sm-8">
+                                  <input type="number" step="0.01" class=" text-center form-control form-control-lg rounded-pill fw-bold" id="customeramountpaid" placeholder="0.00" disabled="">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Change</label>
+                                <div class="col-sm-8">
+                                  <input type="number" step="0.01" class=" text-center form-control form-control-lg rounded-pill text-danger fw-bold" id="change" placeholder="0.00" disabled="">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="d-flex justify-content-between align-items-center"><span>Order</span><button onclick="orderbasketClear()" class="btn btn-sm btn-danger rounded pill">Clear</button></h5>
+                          <hr>
+                          <ul id="orderList" class="list-unstyled" style="height: 60vh; overflow-y: auto;">
+                          </ul>
+                          <hr>
+                          <ul class="list-unstyled mb-0">
+                            <li class="d-flex justify-content-between align-items-center"><big>Total Items: </big> <big id="totalitems" class="fw-bold card-text">0</big>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center"><big>Total Amount: </big><big class="fw-bold">£ <span id="totalcost" class="fw-bold card-text">0.00</span></big>
+                            </li>
+                            <li>
+                              <button disabled="" id="goToCheckOutButton" onclick="goToCheckOutTab()" class="btn btn-primary btn-lg w-100 rounded-pill">CHECKOUT</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="amountcalculator" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <input id="calculatorScreenAmount" type="text" class="mb-3 bg-dark w-100 text-end form-control form-control-lg text-white" disabled="" value="0">
+                    <div class="row">
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('9')" class="btn w-100 rounded-pill text-center btn-outline-dark">9</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('8')" class="btn w-100 rounded-pill text-center btn-outline-dark">8</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('7')" class="btn w-100 rounded-pill text-center btn-outline-dark">7</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('6')" class="btn w-100 rounded-pill text-center btn-outline-dark">6</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('5')" class="btn w-100 rounded-pill text-center btn-outline-dark">5</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('4')" class="btn w-100 rounded-pill text-center btn-outline-dark">4</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('3')" class="btn w-100 rounded-pill text-center btn-outline-dark">3</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('2')" class="btn w-100 rounded-pill text-center btn-outline-dark">2</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('1')" class="btn w-100 rounded-pill text-center btn-outline-dark">1</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('0')" class="btn w-100 rounded-pill text-center btn-outline-dark">0</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('00')" class="btn w-100 rounded-pill text-center btn-outline-dark">00</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorInsert('.')" class="btn w-100 rounded-pill text-center btn-outline-dark">.</button></div>
+                      <div class="col-4 mb-3"><button onclick="calculatorCancel()" class="btn w-100 rounded-pill text-center btn-danger">C</button></div>
+                      <div class="modal-body">
+                        <div class="col-12 mb-3">
+                          <button onclick="exactAmountButton()" class="btn w-100 rounded-pill text-center btn-warning">Exact Amount (<span id="exactAmountSpan"></span>)</button>
+                        </div>
+                        <div class="row">
+                          <div class="col-4 mb-3"><button onclick="denominationButton(20)" class="btn w-100 rounded-pill text-center btn-outline-dark">20</button></div>
+                          <div class="col-4 mb-3"><button onclick="denominationButton(10)" class="btn w-100 rounded-pill text-center btn-outline-dark">10</button></div>
+                          <div class="col-4 mb-3"><button onclick="denominationButton(5)" class="btn w-100 rounded-pill text-center btn-outline-dark">5</button></div>
+                        </div>
+                      </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="calculatorCancel()">Close</button>
+                    <button id="confirmPaid" onclick="confirmPaidButton()" disabled="" type="button" class="btn btn-primary" data-bs-dismiss="modal">Confirm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <script>
+
+              const orderIdArray = [];
+
+              const orderItemIdArray = [];
+              const orderItemsArray = [];
+              const orderPriceArray = [];
+              const orderImageArray =[];
+              const orderArray = [];
+              const orderItemQuantity = [];
+
+              let i = 0;
+
+              function orderbasket(itemid, itemname, itemprice, itemimage) {
+
+                if (orderItemsArray.indexOf(itemname) > -1) {
+                  const itemIndexNumber = orderItemsArray.indexOf(itemname);
+                  orderItemQuantity[itemIndexNumber] = orderItemQuantity[itemIndexNumber] + 1;
+                  incrementItem(orderIdArray[itemIndexNumber], 1);
+                } else {
+
+                orderIdArray.push(i);
+
+                orderItemIdArray.push(itemid);
+                orderItemsArray.push(itemname);
+                orderPriceArray.push(itemprice);
+                orderImageArray.push(itemimage);
+                orderItemQuantity.push(1);
+
+                orderArray.push(itemid, itemname, itemprice, itemimage);
+
+                let orderList = document.getElementById('orderList');
+
+                // Create Li tag
+                const orderItemParent = document.createElement('li');
+                const orderItem = document.createElement('span');
+                orderItem.className = 'd-flex justify-content-between align-items-center';
+
+                // Create a span for red color
+                const orderItemPriceSpan = document.createElement('span');
+
+                // Create the text node with item name and item price
+                const orderItemName = document.createTextNode(' ' + itemname);
+                const orderItemPrice = document.createTextNode(' £ ' + itemprice);
+
+                // Ajjust text color to text-danger
+                orderItemPriceSpan.className = 'text-danger';
+
+                // Add pricetextnodes into span
+                orderItemPriceSpan.appendChild(orderItemPrice);
+
+                // create a delete button
+                const deleteButton = document.createElement('button');
+                const deleteButtonText = document.createTextNode('X');
+
+                deleteButton.setAttribute('onclick', 'deleteItem('+i+', this)');
+
+                // append text to deletebutton
+                deleteButton.appendChild(deleteButtonText);
+                deleteButton.className = 'btn btn-danger rounded-pill';
+
+                // Image section
+                // Step 1: Add image text
+                const orderItemImageTag = document.createElement('img');
+
+                //step 2: Assign source to image
+                orderItemImageTag.src = itemimage;
+
+                // Class name w-25 for img
+                orderItemImageTag.className = 'w-25 rounded border border-dark';
+
+                // Create a span for red color
+                const orderItemLeftSideSpan = document.createElement('span');
+
+                // combine this
+                // step 3: Append child to LI item
+                orderItemLeftSideSpan.appendChild(orderItemImageTag);
+                // Attach itemname tag and itemprice text to LI tag
+                orderItemLeftSideSpan.appendChild(orderItemName);
+                // end of combine
+
+                // Add the price at the end
+                orderItemLeftSideSpan.appendChild(orderItemPriceSpan);
+
+                orderItem.appendChild(orderItemLeftSideSpan);
+
+                // Attach the deletebutton to the SPAN tag
+                orderItem.appendChild(deleteButton);
+                // new created parent LI >> SPAN
+                orderItemParent.appendChild(orderItem);
+                // Append LI tag (child) to parent id=ORDERLIST
+                orderList.appendChild(orderItemParent);
+
+                // button section
+                // add break
+                const decrementButton = document.createElement('button');
+                const incrementButton = document.createElement('button');
+                const decrementButtonText = document.createTextNode('-');
+                const incrementButtonText = document.createTextNode('+');
+                decrementButton.setAttribute('onclick', 'incrementItem('+i+', -1)');
+                incrementButton.setAttribute('onclick', 'incrementItem('+i+', +1)');
+
+
+                const amountItemSpan = document.createElement('span');
+                amountItemSpan.className = 'px-3 fw-bold item' + i;
+                const amountItemText = document.createTextNode('1');
+
+                decrementButton.className = 'btn-sm btn btn-danger rounded-pill px-2 ms-1 fw-bold';
+                incrementButton.className = 'btn-sm btn btn-success rounded-pill px-2 fw-bold';
+                decrementButton.appendChild(decrementButtonText);
+                incrementButton.appendChild(incrementButtonText);
+                amountItemSpan.appendChild(amountItemText)
+                orderItemParent.appendChild(incrementButton);
+                orderItemParent.appendChild(amountItemSpan);
+                orderItemParent.appendChild(decrementButton);
+
+                // increment the i = iteration
+                i++;
+
+                totalitems();
+                costitems();
+
+                // console.log(orderIdArray);
+                // console.log(orderArray);
+
+                enableCheckOutButton();
+              };
+            }
+
+             // function decrementItem(val) {
+               // const itemSpan = document.querySelector('.item0');
+                //itemSpan.innerText = parseInt(itemSpan.innerText) + val;
+              //};
+
+              function incrementItem(orderid, val) {
+                const itemSpan = document.querySelector('.item' + orderid);
+                itemSpan.innerText = parseInt(itemSpan.innerText) + val;
+                const indexnum = orderIdArray.indexOf(orderid);
+                orderItemQuantity[indexnum] = parseInt(itemSpan.innerText);
+                totalitems();
+                costitems();
+                if (itemSpan.innerText == 0) {
+
+                orderItemIdArray.splice(indexnum, 1);
+
+                orderIdArray.splice(indexnum, 1);
+                orderItemsArray.splice(indexnum, 1);
+                orderPriceArray.splice(indexnum, 1);
+                orderImageArray.splice(indexnum, 1);
+                orderItemQuantity.splice(indexnum, 1);
+                totalitems();
+                costitems();
+                console.log(itemSpan);
+                console.log(itemSpan.parentElement);
+                orderList.removeChild(itemSpan.parentElement);
+
+                if (orderPriceArray.length === 0) {
+                  document.getElementById('amount').value = 0;
+                }
+                enableCheckOutButton();
+              }
+
+              };
+
+              function totalitems() {
+                // document.getElementById('totalitems').innerText = orderItemsArray.length;
+                if (orderItemQuantity.length) {
+                document.getElementById('totalitems').innerText = orderItemQuantity.reduce((total, num) => {
+                  return total + num })
+                } else {
+                  document.getElementById('totalitems').innerText = '0';
+                }
+              };
+
+              function costitems() {
+                if (orderPriceArray.length === 0) {
+                  document.getElementById('totalcost').innerText = 0;
+                } else {
+                  const totalTempArray = [];
+                  orderItemQuantity.map((quantity, index) => {
+                    totalTempArray.push(quantity * orderPriceArray[index])
+                  })
+                document.getElementById('totalcost').innerText = totalTempArray.reduce(sumArray).toFixed(2);
+                document.getElementById('amount').value = totalTempArray.reduce(sumArray).toFixed(2);
+
+                function sumArray(total, sum) {
+                  return total + sum;
+                  };
+                }
+              };
+
+              function orderbasketClear() {
+                let orderList = document.getElementById('orderList');
+                document.getElementById('amount').value = 0;
+                orderList.innerHTML = '';
+                orderItemsArray.length = 0;
+                orderPriceArray.length = 0;
+                orderImageArray.length = 0;
+                orderArray.length = 0;
+                orderIdArray.length = 0;
+                orderItemQuantity.length = 0;
+                i = 0;
+                totalitems();
+                costitems();
+                enableCheckOutButton();
+              }
+
+              function deleteItem(orderid, button) {
+                const indexnum = orderIdArray.indexOf(orderid);
+                orderIdArray.splice(indexnum, 1);
+
+                orderItemIdArray.splice(indexnum, 1);
+
+                orderItemsArray.splice(indexnum, 1);
+                orderPriceArray.splice(indexnum, 1);
+                orderImageArray.splice(indexnum, 1);
+                orderItemQuantity.splice(indexnum, 1);
+                totalitems();
+                costitems();
+                orderList.removeChild(button.parentElement.parentElement);
+
+                if (orderPriceArray.length === 0) {
+                  document.getElementById('amount').value = 0;
+                }
+                enableCheckOutButton();
+              };
+
+              function exactAmountCalculator() {
+                document.getElementById('exactAmountSpan').innerText = document.getElementById('amount').value;
+              };
+
+              const calculatorScreenAmount = document.getElementById('calculatorScreenAmount');
+
+              function calculatorInsert(number) {
+                if (calculatorScreenAmount.value == 0 && number == '00') {
+                  calculatorScreenAmount.value = '0.';
+                } else if (calculatorScreenAmount.value == 0 && number == '0') {
+                  calculatorScreenAmount.value = '0.';
+                } else if (calculatorScreenAmount.value == '' && number == '00') {
+                  calculatorScreenAmount.value = '0';
+                } else if (calculatorScreenAmount.value.includes('.') === true && number == '.') {
+                  calculatorScreenAmount.value = calculatorScreenAmount.value;
+                } else if (calculatorScreenAmount.value == '0' && number > '1') {
+                  calculatorScreenAmount.value = number;
+                } else {
+                  calculatorScreenAmount.value += number;
+                }
+                enableConfirmPaidButton();
+              }
+                if (calculatorScreenAmount.value = '.') {
+                  calculatorScreenAmount.value = '0.';
+                };
+
+              function exactAmountButton() {
+                calculatorScreenAmount.value = document.getElementById('amount').value;
+                enableConfirmPaidButton();
+              };
+
+              function denominationButton(note) {
+                calculatorScreenAmount.value = parseFloat(calculatorScreenAmount.value) + note;
+                enableConfirmPaidButton();
+              };
+
+              function calculatorCancel() {
+                calculatorScreenAmount.value = '0';
+                enableConfirmPaidButton();
+              };
+
+              function enableConfirmPaidButton() {
+                document.getElementById('confirmPaid').disabled = 'true';
+                if (parseFloat(calculatorScreenAmount.value) >= parseFloat(document.getElementById('amount').value)) {
+                  document.getElementById('confirmPaid').disabled = false;
+                };
+              };
+
+              function confirmPaidButton() {
+                const customerAmountPaid = document.getElementById('customeramountpaid');
+                customerAmountPaid.value = calculatorScreenAmount.value;
+                const customerAmountChange = document.getElementById('change');
+                customerAmountChange.value = customerAmountPaid.value - document.getElementById('amount').value;
+
+                document.getElementById('calculatorModal').disabled = true;
+              };
+
+              function enableCheckOutButton() {
+                const checkOutButton = document.getElementById('goToCheckOutButton');
+                checkOutButton.disabled = true;
+                if (orderIdArray.length > 0) {
+                checkOutButton.disabled = false;
+                }
+                if (orderIdArray.length == 0) {
+                  const backToFoodTab = document.getElementById('food-tab');
+                  const foodTab = new bootstrap.Tab(backToFoodTab);
+                  foodTab.show();
+
+                }
+              };
+
+                function goToCheckOutTab() {
+                  const firstTabEl = document.getElementById('checkout-tab');
+                  const firstTab = new bootstrap.Tab(firstTabEl);
+                  firstTab.show();
+
+              };
+
+              </script>
+
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+          </body>
+</html>
