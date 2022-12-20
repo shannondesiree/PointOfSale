@@ -316,13 +316,12 @@
 
           <div class="tab-pane fade" id="checkout-tab-pane" role="tabpanel" aria-labelledby="checkout-tab" tabindex="0">
             <h3>CHECKOUT</h3>
-            <div class="row mb-3">
-              <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Customer Name</label>
-              <div class="col-sm-8">
-                <input type="text" class=" text-center form-control form-control-lg rounded-pill" id="customername"
-                  placeholder="ORDER #0000">
-              </div>
-            </div>
+            <! -- <div class="row mb-3">
+              <! -- <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"></label>
+              <! -- <div class="col-sm-8">
+                <! -- <input type="text" class=" text-center form-control form-control-lg rounded-pill" id="customername" placeholder="ORDER #0000">
+                <! -- </div>
+                <! -- </div>
             <div class="row mb-3">
               <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Amount</label>
               <div class="col-sm-8">
@@ -677,6 +676,9 @@
     const calculatorScreenAmount = document.getElementById('calculatorScreenAmount');
 
     function calculatorInsert(number) {
+      // const calculatorScreenAmount = document.getElementById('calculatorScreenAmount');
+      // calculatorScreenAmount.value = 0;
+
       if (calculatorScreenAmount.value == 0 && number == '00') {
         calculatorScreenAmount.value = '0.';
       } else if (calculatorScreenAmount.value == 0 && number == '0') {
@@ -685,7 +687,7 @@
         calculatorScreenAmount.value = '0';
       } else if (calculatorScreenAmount.value.includes('.') === true && number == '.') {
         calculatorScreenAmount.value = calculatorScreenAmount.value;
-      } else if (calculatorScreenAmount.value == '0' && number > '1') {
+      } else if (calculatorScreenAmount.value == 0 && number >= '1') {
         calculatorScreenAmount.value = number;
       } else {
         calculatorScreenAmount.value += number;
