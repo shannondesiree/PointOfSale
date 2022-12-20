@@ -1,0 +1,59 @@
+body {
+    background-color: #F5EFDB
+}
+.header {
+    background-color: #F6C016;
+    color: #DB411B;
+    padding: 0;
+    margin: 0.5;
+}
+h1 {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 50px;
+    text-align: center;
+    padding: 0.1em;
+    margin: 0;
+}
+hr {
+    display: block;
+    height: 0;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    border-left: solid black;
+    border-right: solid black;
+    margin: 10px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+tr {
+    height: 100px;
+}
+td {
+    background-color: #FDFECF;
+    color: black;
+    font-size: 22pt;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    width: 200px;
+}
+button {
+    background-color: #FDFECF;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    vertical-align: middle;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+form {
+    font-size: 15pt;
+    font-family: 'Nunito', sans-serif;
+}
+input {
+    line-height: 3;
+}
