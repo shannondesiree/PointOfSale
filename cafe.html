@@ -19,7 +19,6 @@
   <div class="bg-dark p-3">
     <div class="row mx-0 py-3 bg-light">
       <div class="col-sm-8">
-        <p>Order #88 <small class="text-muted">Today, 20 March, 02:34 PM</small></p>
 
         <div class="card rounded mb-3">
           <div class="card-body">
@@ -355,16 +354,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="printReceiptButton" class="col-sm-4 col-form-label col-form-label-lg">Print Receipt</label>
-              <div class="col-sm-8">
-                <button id="printReceiptButton" class="btn btn-dark btn-lg rounded-pill w-100" disabled>Print
-                  Receipt</button>
-              </div>
-            </div>
-            <div class="row mb-3">
               <label for="customerNextButton" class="col-sm-4 col-form-label col-form-label-lg">Next Customer</label>
               <div class="col-sm-8">
-                <button id="customerNextButton" class="btn btn-primary btn-lg rounded-pill w-100" disabled>Next
+                <button id="customerNextButton" onclick="newCustomer()" class="btn btn-primary btn-lg rounded-pill w-100" disabled>Next
                   Customer</button>
               </div>
             </div>
@@ -584,17 +576,9 @@
         totalitems();
         costitems();
 
-        // console.log(orderIdArray);
-        // console.log(orderArray);
-
         enableCheckOutButton();
       };
     }
-
-    // function decrementItem(val) {
-    // const itemSpan = document.querySelector('.item0');
-    //itemSpan.innerText = parseInt(itemSpan.innerText) + val;
-    //};
 
     function incrementItem(orderid, val) {
       const itemSpan = document.querySelector('.item' + orderid);
@@ -614,8 +598,6 @@
         orderItemQuantity.splice(indexnum, 1);
         totalitems();
         costitems();
-        console.log(itemSpan);
-        console.log(itemSpan.parentElement);
         orderList.removeChild(itemSpan.parentElement);
 
         if (orderPriceArray.length === 0) {
@@ -623,11 +605,9 @@
         }
         enableCheckOutButton();
       }
-
     };
 
     function totalitems() {
-      // document.getElementById('totalitems').innerText = orderItemsArray.length;
       if (orderItemQuantity.length) {
         document.getElementById('totalitems').innerText = orderItemQuantity.reduce((total, num) => {
           return total + num
@@ -745,12 +725,11 @@
       customerAmountChange.value = customerAmountPaid.value - document.getElementById('amount').value;
 
       document.getElementById('calculatorModal').disabled = true;
-      enableNextCustomerAndPrintButton();
+      enableNextCustomer();
       disableAllButtons();
     };
 
-    function enableNextCustomerAndPrintButton() {
-      document.getElementById('printReceiptButton').disabled = false;
+    function enableNextCustomer() {
       document.getElementById('customerNextButton').disabled = false;
 
     };
@@ -786,6 +765,22 @@
       const firstTabEl = document.getElementById('checkout-tab');
       const firstTab = new bootstrap.Tab(firstTabEl);
       firstTab.show();
+
+    };
+
+    function newCustomer() {
+      const backToFoodTab = document.getElementById('food-tab');
+      const foodTab = new bootstrap.Tab(backToFoodTab);
+      foodTab.show();
+      orderbasketClear();
+      document.getElementById('drinks-tab').disabled = false;
+      document.getElementById('orderBasketClearButton').disabled = false;
+      document.getElementById('calculatorModal').disabled = false;
+      const customerAmountPaid = document.getElementById('customeramountpaid');
+      customerAmountPaid.value = 0;
+      const customerAmountChange = document.getElementById('change');
+      customerAmountChange.value = 0;
+      calculatorScreenAmount.value = '0';
 
     };
 
